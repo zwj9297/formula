@@ -1,9 +1,10 @@
 {
   "name": "@zwj9297/formula",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "keywords": [
-    "formula", "expression"
+    "formula",
+    "expression"
   ],
   "main": "dist/formula.cjs.js",
   "module": "dist/formula.esm.js",

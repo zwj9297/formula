@@ -18,7 +18,7 @@
 - 加减乘除
 
   ```javascript
-  import { createFormula } from 'formula'
+  import { createFormula } from '@zwj9297/formula'
 
   const formula = createFormula()
 
@@ -39,7 +39,7 @@
 - 分组运算
 
   ```javascript
-  import { createFormula } from 'formula'
+  import { createFormula } from '@zwj9297/formula'
   
   const formula = createFormula()
 
@@ -51,7 +51,7 @@
 - 基于[big.js](https://www.npmjs.com/package/big.js)，解决了精度丢失和大数相加
 
   ```javascript
-  import { createFormula } from 'formula'
+  import { createFormula } from '@zwj9297/formula'
 
   const formula = createFormula()
 
@@ -70,7 +70,7 @@
 - 临时变量
 
   ```javascript
-  import { createFormula } from 'formula'
+  import { createFormula } from '@zwj9297/formula'
 
   const formula = createFormula()
 
@@ -85,7 +85,7 @@
 - 全局变量
 
   ```javascript
-  import { createFormula } from 'formula'
+  import { createFormula } from '@zwj9297/formula'
 
   const formula = createFormula()
 
@@ -107,7 +107,7 @@
   > 默认提供了文本函数、数学函数、日期函数、逻辑函数
 
   ```javascript
-  import { createFormula } from 'formula'
+  import { createFormula } from '@zwj9297/formula'
 
   const formula = createFormula()
 
@@ -122,7 +122,7 @@
 - 自定义函数
 
   ```javascript
-  import { createFormula } from 'formula'
+  import { createFormula } from '@zwj9297/formula'
 
   const formula = createFormula()
 
@@ -136,7 +136,7 @@
 - 函数设置别名
 
   ```javascript
-  import { createFormula } from 'formula'
+  import { createFormula } from '@zwj9297/formula'
 
   const formula = createFormula()
 

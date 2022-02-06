@@ -3,7 +3,6 @@
 文本的表达式库
 
 ## 基本用法
-
 ### 基本规则
 - 输入：文本解析成公式，并输出结果
   - 支持解析数值（`0-9`和`.`组成的字符串）
@@ -12,6 +11,14 @@
   - 支持解析变量（以`{}`包裹的字符串）
   - 支持解析函数（以`$`开头，`()`结尾的字符串）
 - 输出：文本（string），数值（number），是否（boolean）以及日期（[moment对象](http://momentjs.cn/docs/)）
+
+### 创建formula实例
+通过createFormula创建一个formula实例，每个实例的[全局变量](#全局变量)，[别名](#函数设置别名)和[自定义函数](#自定义函数)都是隔离的。
+```javascript
+import { createFormula } from '@zwj9297/formula'
+
+const formula = createFormula()
+```
 
 ### 支持四则运算
 
@@ -82,7 +89,7 @@
   })
   ```
 
-- 全局变量
+- #### 全局变量
 
   ```javascript
   import { createFormula } from '@zwj9297/formula'
@@ -104,7 +111,7 @@
 
 - 以`$`开头，字母作为函数名，`()`包裹作为入参的的字符串会被作为函数使用
 
-  > 默认提供了文本函数、数学函数、日期函数、逻辑函数
+  > 默认提供了文本函数、数学函数、日期函数、逻辑函数，详情请看[全局函数](#全局函数)
 
   ```javascript
   import { createFormula } from '@zwj9297/formula'
@@ -119,7 +126,7 @@
   })
   ```
 
-- 自定义函数
+- #### 自定义函数
 
   ```javascript
   import { createFormula } from '@zwj9297/formula'
@@ -133,7 +140,7 @@
   })
   ```
 
-- 函数设置别名
+- #### 函数设置别名
 
   ```javascript
   import { createFormula } from '@zwj9297/formula'
@@ -152,12 +159,7 @@
   })
   ```
 
-## 提供的函数
-|函数|说明|
-|--|--|
-|text(value: number): string|把数值转换为文本|
-|date(text: string, format: string): Moment|把文本转换为moment对象|
-
+## 全局函数
 ### 数学函数
 #### text(value)
 数值转换为文本

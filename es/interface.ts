@@ -123,5 +123,5 @@ export interface FormulaPluginVariable {
 export interface FormulaPlugin {
   name: string;
   methods?: FormulaPluginMethod[];
-  constants?: FormulaPluginVariable[];
+  variables?: FormulaPluginVariable[];
 }

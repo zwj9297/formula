@@ -3,7 +3,7 @@ import { FormulaPlugin, FormulaNodeType } from 'es/interface';
 import { ExceptionType, createException } from 'es/utils/exception';
 
 /**
- * 数值相加
+ * 求和
  */
 export function add(x: number, y: number): number {
   const res = new Big(x).add(y).toNumber();
@@ -14,7 +14,7 @@ export function add(x: number, y: number): number {
 }
 
 /**
- * 数值相减
+ * 求差
  */
 export function minus(x: number, y: number): number {
   const res = new Big(x).minus(y).toNumber();
@@ -25,7 +25,7 @@ export function minus(x: number, y: number): number {
 }
 
 /**
- * 数值相乘
+ * 求积
  */
 export function multi(x: number, y: number): number {
   const res = new Big(x).mul(y).toNumber();
@@ -36,7 +36,7 @@ export function multi(x: number, y: number): number {
 }
 
 /**
- * 数值相除
+ * 求商
  */
 export function div(x: number, y: number): number {
   const res = new Big(x).div(y).toNumber();
@@ -95,83 +95,120 @@ export const Math: FormulaPlugin = {
   methods: [
     {
       name: 'add',
-      description: '数值相加',
+      description: '求和',
       inputs: [
         {
           type: FormulaNodeType.NUMBER,
           name: 'x',
+          description: '被加数',
           required: true
         },
         {
           type: FormulaNodeType.NUMBER,
           name: 'y',
+          description: '加数',
           required: true
         }
       ],
       output: {
-        type: FormulaNodeType.NUMBER
+        type: FormulaNodeType.NUMBER,
+        description: '和'
       },
       method: add
     },
     {
       name: 'minus',
-      description: '数值相减',
+      description: '求差',
       inputs: [
         {
           type: FormulaNodeType.NUMBER,
           name: 'x',
+          description: '被减数',
           required: true
         },
         {
           type: FormulaNodeType.NUMBER,
           name: 'y',
+          description: '减数',
           required: true
         }
       ],
       output: {
-        type: FormulaNodeType.NUMBER
+        type: FormulaNodeType.NUMBER,
+        description: '差'
       },
       method: minus
     },
     {
       name: 'multi',
-      description: '数值相乘',
+      description: '求积',
       inputs: [
         {
           type: FormulaNodeType.NUMBER,
           name: 'x',
+          description: '被乘数',
           required: true
         },
         {
           type: FormulaNodeType.NUMBER,
           name: 'y',
+          description: '乘数',
           required: true
         }
       ],
       output: {
-        type: FormulaNodeType.NUMBER
+        type: FormulaNodeType.NUMBER,
+        description: '积'
       },
       method: multi
     },
     {
       name: 'div',
-      description: '数值相除',
+      description: '求商',
       inputs: [
         {
           type: FormulaNodeType.NUMBER,
           name: 'x',
+          description: '被除数',
           required: true
         },
         {
           type: FormulaNodeType.NUMBER,
           name: 'y',
+          description: '除数',
           required: true
         }
       ],
       output: {
-        type: FormulaNodeType.NUMBER
+        type: FormulaNodeType.NUMBER,
+        description: '商'
       },
       method: div
+    },
+    {
+      name: 'pow',
+      description: '求幂',
+      inputs: [
+        {
+          type: FormulaNodeType.NUMBER,
+          name: 'x',
+          description: '底数',
+          required: true
+        },
+        {
+          type: FormulaNodeType.NUMBER,
+          name: 'y',
+          description: '指数',
+          required: true
+        }
+      ],
+      output: {
+        type: FormulaNodeType.NUMBER,
+        description: '幂'
+      },
+      method: function pow(x: number, y: number) {
+        return x ** y;
+      }
     },
     {
       name: 'gte',
@@ -320,80 +357,6 @@ export const Math: FormulaPlugin = {
         }
         return Number(value);
       }
-    },
-    {
-      name: 'average',
-      description: '求平均值',
-      inputs: [
-        {
-          type: FormulaNodeType.NUMBER,
-          name: 'x',
-          required: true
-        },
-        {
-          type: FormulaNodeType.NUMBER,
-          name: 'y',
-          required: true
-        }
-      ],
-      output: {
-        type: FormulaNodeType.NUMBER
-      },
-      method: function average(x: number, y: number): number {
-        return div(add(x, y), 2);
-      }
-    },
-    {
-      name: 'pow',
-      description: '求幂',
-      inputs: [
-        {
-          type: FormulaNodeType.NUMBER,
-          name: 'x',
-          required: true
-        },
-        {
-          type: FormulaNodeType.NUMBER,
-          name: 'y',
-          required: true
-        }
-      ],
-      output: {
-        type: FormulaNodeType.NUMBER
-      },
-      method: function pow(x: number, y: number) {
-        return x ** y;
-      }
-    },
-    {
-      name: 'fixed',
-      description: '用定点小数格式',
-      inputs: [
-        {
-          type: FormulaNodeType.NUMBER,
-          name: 'value',
-          required: true
-        },
-        {
-          type: FormulaNodeType.NUMBER,
-          name: 'decimals',
-          required: true
-        }
-      ],
-      output: {
-        type: FormulaNodeType.TEXT
-      },
-      method: function fixed(value: number, decimals: number) {
-        return value.toFixed(decimals);
-      }
-    }
-  ],
-  constants: [
-    {
-      name: 'PI',
-      description: '圆周率',
-      type: FormulaNodeType.NUMBER,
-      value: GlobalMath.PI
     }
   ]
 };

@@ -43,7 +43,7 @@ export class Formula {
       plugin.methods?.forEach((method) => {
         this.methodManager.add(method);
       });
-      plugin.constants?.forEach((constant) => {
+      plugin.variables?.forEach((constant) => {
         this.variableManager.add(constant);
       });
       this.plugins.push(plugin);
@@ -66,7 +66,7 @@ export class Formula {
     plugin.methods?.forEach((method) => {
       this.methodManager.remove(method);
     });
-    plugin.constants?.forEach((constant) => {
+    plugin.variables?.forEach((constant) => {
       this.variableManager.remove(constant);
     });
     this.plugins.splice(index, 1);

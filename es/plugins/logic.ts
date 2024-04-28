@@ -1,15 +1,15 @@
 import { FormulaNodeType, FormulaPlugin } from 'es/interface';
 
-function and(value1: boolean, value2: boolean) {
-  return value1 && value2;
+function and(condition1: boolean, condition2: boolean) {
+  return condition1 && condition2;
 }
 
-function or(value1: boolean, value2: boolean) {
-  return value1 || value2;
+function or(condition1: boolean, condition2: boolean) {
+  return condition1 || condition2;
 }
 
-function xor(value1: boolean, value2: boolean) {
-  return value1 !== value2;
+function xor(condition1: boolean, condition2: boolean) {
+  return condition1 !== condition2;
 }
 
 function not(value: boolean): boolean {
@@ -63,12 +63,12 @@ export const Logic: FormulaPlugin = {
       inputs: [
         {
           type: FormulaNodeType.BOOLEAN,
-          name: 'value1',
+          name: 'condition1',
           required: true
         },
         {
           type: FormulaNodeType.BOOLEAN,
-          name: 'value2',
+          name: 'condition2',
           required: true
         }
       ],
@@ -83,12 +83,12 @@ export const Logic: FormulaPlugin = {
       inputs: [
         {
           type: FormulaNodeType.BOOLEAN,
-          name: 'value1',
+          name: 'condition1',
           required: true
         },
         {
           type: FormulaNodeType.BOOLEAN,
-          name: 'value2',
+          name: 'condition2',
           required: true
         }
       ],
@@ -103,12 +103,12 @@ export const Logic: FormulaPlugin = {
       inputs: [
         {
           type: FormulaNodeType.BOOLEAN,
-          name: 'value1',
+          name: 'condition1',
           required: true
         },
         {
           type: FormulaNodeType.BOOLEAN,
-          name: 'value2',
+          name: 'condition2',
           required: true
         }
       ],

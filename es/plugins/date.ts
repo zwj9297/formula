@@ -133,7 +133,7 @@ export const Datetime: FormulaPlugin = {
       ],
       output: {
         type: FormulaNodeType.DATETIME,
-        description: '时间'
+        description: '日期时间'
       },
       method: function date(value: string | number) {
         const date = new Date(value);
@@ -145,11 +145,11 @@ export const Datetime: FormulaPlugin = {
     },
     {
       name: 'format',
-      description: '获取格式化日期',
+      description: '格式化日期',
       inputs: [
         {
           type: FormulaNodeType.DATETIME,
-          name: 'datetime',
+          name: 'date',
           description: '日期时间',
           required: true
         },
@@ -196,7 +196,7 @@ export const Datetime: FormulaPlugin = {
       inputs: [
         {
           type: FormulaNodeType.DATETIME,
-          name: 'datetime',
+          name: 'date',
           description: '日期时间',
           required: true
         }
@@ -215,7 +215,7 @@ export const Datetime: FormulaPlugin = {
       inputs: [
         {
           type: FormulaNodeType.DATETIME,
-          name: 'datetime',
+          name: 'date',
           description: '日期时间',
           required: true
         },
@@ -242,7 +242,7 @@ export const Datetime: FormulaPlugin = {
       inputs: [
         {
           type: FormulaNodeType.DATETIME,
-          name: 'datetime',
+          name: 'date',
           description: '日期时间',
           required: true
         }
@@ -261,7 +261,7 @@ export const Datetime: FormulaPlugin = {
       inputs: [
         {
           type: FormulaNodeType.DATETIME,
-          name: 'datetime',
+          name: 'date',
           description: '日期时间',
           required: true
         },
@@ -288,7 +288,7 @@ export const Datetime: FormulaPlugin = {
       inputs: [
         {
           type: FormulaNodeType.DATETIME,
-          name: 'datetime',
+          name: 'date',
           description: '日期时间',
           required: true
         }
@@ -307,13 +307,13 @@ export const Datetime: FormulaPlugin = {
       inputs: [
         {
           type: FormulaNodeType.DATETIME,
-          name: 'datetime',
+          name: 'date',
           description: '日期时间',
           required: true
         },
         {
           type: FormulaNodeType.NUMBER,
-          name: 'date',
+          name: 'day',
           description: '新的日',
           required: true
         }
@@ -334,7 +334,7 @@ export const Datetime: FormulaPlugin = {
       inputs: [
         {
           type: FormulaNodeType.DATETIME,
-          name: 'datetime',
+          name: 'date',
           description: '日期时间',
           required: true
         }
@@ -348,12 +348,12 @@ export const Datetime: FormulaPlugin = {
       }
     },
     {
-      name: 'setHour',
+      name: 'setHours',
       description: '设置时',
       inputs: [
         {
           type: FormulaNodeType.DATETIME,
-          name: 'datetime',
+          name: 'date',
           description: '日期时间',
           required: true
         },
@@ -380,7 +380,7 @@ export const Datetime: FormulaPlugin = {
       inputs: [
         {
           type: FormulaNodeType.DATETIME,
-          name: 'datetime',
+          name: 'date',
           description: '日期时间',
           required: true
         }
@@ -399,7 +399,7 @@ export const Datetime: FormulaPlugin = {
       inputs: [
         {
           type: FormulaNodeType.DATETIME,
-          name: 'datetime',
+          name: 'date',
           description: '日期时间',
           required: true
         },
@@ -426,7 +426,7 @@ export const Datetime: FormulaPlugin = {
       inputs: [
         {
           type: FormulaNodeType.DATETIME,
-          name: 'datetime',
+          name: 'date',
           description: '日期时间',
           required: true
         }
@@ -445,7 +445,7 @@ export const Datetime: FormulaPlugin = {
       inputs: [
         {
           type: FormulaNodeType.DATETIME,
-          name: 'datetime',
+          name: 'date',
           description: '日期时间',
           required: true
         },
@@ -472,7 +472,7 @@ export const Datetime: FormulaPlugin = {
       inputs: [
         {
           type: FormulaNodeType.DATETIME,
-          name: 'datetime',
+          name: 'date',
           description: '日期时间',
           required: true
         }
@@ -491,7 +491,7 @@ export const Datetime: FormulaPlugin = {
       inputs: [
         {
           type: FormulaNodeType.DATETIME,
-          name: 'datetime',
+          name: 'date',
           description: '日期时间',
           required: true
         },

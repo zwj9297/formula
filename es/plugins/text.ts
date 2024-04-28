@@ -1,7 +1,7 @@
 import { FormulaPlugin, FormulaNodeType } from 'es/interface';
 
-function mid(text: string, start_num: number, num_chars: number): string {
-  return text.slice(start_num, start_num + num_chars);
+function mid(text: string, start_num: number, num_chars?: number): string {
+  return text.slice(start_num, num_chars ? start_num + num_chars : undefined);
 }
 
 function lower(text: string): string {
@@ -81,8 +81,8 @@ export const Text: FormulaPlugin = {
         },
         {
           type: FormulaNodeType.NUMBER,
-          description: '开始查找的位置',
-          name: 'start_num'
+          name: 'start_num',
+          description: '开始查找的位置'
         }
       ],
       output: {
@@ -140,8 +140,7 @@ export const Text: FormulaPlugin = {
         {
           type: FormulaNodeType.NUMBER,
           name: 'num_chars',
-          description: '字符个数',
-          required: true
+          description: '字符个数'
         }
       ],
       output: {
@@ -202,7 +201,7 @@ export const Text: FormulaPlugin = {
     },
     {
       name: 'len',
-      description: '',
+      description: '返回字符串长度',
       inputs: [
         {
           type: FormulaNodeType.TEXT,

@@ -12,9 +12,9 @@ interface IFormulaOptions {
 export class Formula {
   private plugins: FormulaPlugin[] = [];
 
-  private readonly methodManager: MethodManager;
+  private readonly methodManager = new MethodManager();
 
-  private readonly variableManager: VariableManager;
+  private readonly variableManager = new VariableManager();
 
   private readonly tokenizer: ReturnType<typeof createTokenizer>;
 
@@ -24,8 +24,6 @@ export class Formula {
     options?.plugins?.forEach((plugin) => {
       this.register(plugin);
     });
-    this.methodManager = new MethodManager();
-    this.variableManager = new VariableManager();
     this.tokenizer = createTokenizer();
     this.calculator = createCalculator(
       this.methodManager,

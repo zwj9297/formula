@@ -380,11 +380,11 @@ function tokenizeBase(
     setTokenizeGroup(state);
   } else if (assert.isGroupEnd(state, ch)) {
     const { resolve } = state;
-    if (
-      !assert.isIn(state, FormulaNodeType.GROUP | FormulaNodeType.METHOD) ||
-      !resolve.length
-    ) {
+    if (!assert.isIn(state, FormulaNodeType.GROUP | FormulaNodeType.METHOD)) {
       throw createException(ExceptionType.UnexpectedToken, ch);
+    }
+    if (assert.isIn(state, FormulaNodeType.GROUP) && !resolve.length) {
+      throw createException(ExceptionType.GroupEmpty);
     }
     state.surface().tokenize(state, resolve);
   } else if (assert.isNumber(state, ch) || assert.isDecimalPoint(state, ch)) {

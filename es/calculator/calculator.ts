@@ -15,7 +15,7 @@ import {
   minus,
   multi,
   div
-} from 'es/plugins/math';
+} from 'es/plugins/arithmetic';
 import {
   cloneNodes,
   createMethodNode,

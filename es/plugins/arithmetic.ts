@@ -88,10 +88,8 @@ export function neq(x: number, y: number): boolean {
   return !new Big(x).eq(y);
 }
 
-const GlobalMath = globalThis.Math;
-
-export const Math: FormulaPlugin = {
-  name: 'Math',
+export const Arithmetic: FormulaPlugin = {
+  name: 'Arithmetic',
   methods: [
     {
       name: 'add',

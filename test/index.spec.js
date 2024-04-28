@@ -1,4 +1,4 @@
-const { Formula, Math } = require('../dist/formula');
+const { Formula, Arithmetic } = require('../dist/formula');
 
 var expect = require('chai').expect;
 
@@ -56,7 +56,7 @@ describe('复杂运算', function () {
 });
 
 describe('数学函数', function () {
-  const formula = new Formula({ plugins: [Math] });
+  const formula = new Formula({ plugins: [Arithmetic] });
   it('$add(1,1)=2?', function () {
     return formula.calculate('$add(1,1)').then((res) => {
       expect(res).to.be.equal(2);

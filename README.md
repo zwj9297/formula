@@ -80,11 +80,11 @@ formula.calculate('0.1+0.2').then((res) => {
 所有内置插件看 [插件列表](#插件列表)
 
 ```typescript
-import { Math, Formula } from '@zwj9297/formula';
+import { Arithmetic, Formula } from '@zwj9297/formula';
 
-const formula = new Formula({ plugins: [Math] }); // 实例化时传入
+const formula = new Formula({ plugins: [Arithmetic] }); // 实例化时传入
 // OR 通过 register 注册插件
-// formula.register(Math);
+// formula.register(Arithmetic);
 
 formula.calculate('$add(1,2)').then((res) => {
   console.log(res); // 3
@@ -164,9 +164,9 @@ formula.calculate('$isEven({two}+1)').then((res) => {
 每次调用时传入，不需要通过插件注册。临时变量优先级高于全局变量
 
 ```javascript
-import { Formula, Math } from '@zwj9297/formula';
+import { Formula, Arithmetic } from '@zwj9297/formula';
 
-const formula = new Formula({ plugins: [Math] });
+const formula = new Formula({ plugins: [Arithmetic] });
 
 formula.calculate('1+{a}', { a: 2 }).then((res) => {
   console.log(res); // 3

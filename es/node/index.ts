@@ -22,7 +22,7 @@ import { ExceptionType, createException } from 'es/utils/exception';
  * @param chars 节点对应的文本
  * @return 节点对象
  */
-export const createNode = <T>(
+export const createNode = <T extends FormulaNode['content']>(
   type: FormulaNodeType,
   index: number,
   chars: string,
@@ -55,13 +55,11 @@ export const createMethodNode = (
   index: number,
   chars: string,
   name: string,
-  params: FormulaNode[],
-  result?: any
+  params: FormulaNode[]
 ) => {
   return createNode(FormulaNodeType.METHOD, index, chars, {
     name,
-    params,
-    result
+    params
   }) as FormulaMethodNode;
 };
 
@@ -120,7 +118,10 @@ export const createGroupNode = (
   }) as FormulaGroupNode;
 };
 
-export const isValueMatchNodeType = (value: any, nodeType: FormulaNodeType) => {
+export const isValueMatchNodeType = (
+  value: string | number | boolean | Date,
+  nodeType: FormulaNodeType
+) => {
   return (
     (typeof value === 'string' && nodeType === FormulaNodeType.TEXT) ||
     (typeof value === 'number' && nodeType === FormulaNodeType.NUMBER) ||

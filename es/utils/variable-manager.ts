@@ -29,7 +29,7 @@ export class VariableManager {
     return this.map.has(options.name);
   }
 
-  set<T>(name: string, value: T) {
+  set<T extends string | number | boolean | Date>(name: string, value: T) {
     const opt = this.map.get(name);
     if (!opt) {
       throw createException(ExceptionType.VariableNotDefined, name);
@@ -44,11 +44,11 @@ export class VariableManager {
     opt.value = value;
   }
 
-  get<T>(name: string): T {
+  get<T extends string | number | boolean | Date>(name: string) {
     const opt = this.map.get(name);
     if (!opt) {
       throw createException(ExceptionType.VariableNotDefined, name);
     }
-    return opt!.value;
+    return opt.value as T;
   }
 }

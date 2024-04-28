@@ -1,5 +1,5 @@
 import { FormulaNodeType } from 'es/interface';
-import type { TokenizeState } from './state';
+import type { TokenizeState } from './interface';
 
 export function isEmpty(_state: TokenizeState, ch: string): boolean {
   return ch === '';

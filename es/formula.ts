@@ -68,8 +68,11 @@ export class Formula {
     this.plugins.splice(index, 1);
   }
 
-  async calculate(text: string, tempVars: Record<string, any> = {}) {
-    const nodes = await this.tokenizer(text);
+  async calculate(
+    text: string,
+    tempVars: Record<string, string | number | boolean | Date> = {}
+  ) {
+    const nodes = this.tokenizer(text);
     const result = await this.calculator(nodes, tempVars);
     return result.content.value;
   }

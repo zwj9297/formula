@@ -21,7 +21,7 @@ import type {
   FormulaOperatorNode
 } from 'es/interface';
 import { FormulaNodeType } from 'es/interface';
-import { BaseState, TokenizeState } from './state';
+import { BaseState, TokenizeState } from './interface';
 import { ExceptionType, createException } from 'es/utils/exception';
 
 // 运算符权重
@@ -489,7 +489,7 @@ const convertInfix2prefix = (source: FormulaNode[]): FormulaNode[] => {
 
 export const createTokenizer = () => {
   const cache: Record<string, FormulaNode[]> = {};
-  return async function tokenizer(text: string) {
+  return function tokenizer(text: string) {
     const text$1 = text.trim();
     if (!cache.hasOwnProperty(text$1)) {
       const state = new TokenizeStateImpl(text$1);
@@ -498,6 +498,6 @@ export const createTokenizer = () => {
       }
       cache[text$1] = convertInfix2prefix(state.resolve);
     }
-    return Promise.resolve(cache[text$1]);
+    return cache[text$1];
   };
 };

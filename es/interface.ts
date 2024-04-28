@@ -19,7 +19,7 @@ export enum FormulaNodeType {
   METHOD = 256
 }
 
-export interface FormulaNode<T = any> {
+export interface FormulaNode<T = Record<string, any>> {
   /** 节点类型 */
   type: FormulaNodeType;
   /** 节点在文本中的位置 */
@@ -45,7 +45,6 @@ export interface FormulaMethodNode extends FormulaNode {
   content: {
     name: string;
     params: FormulaNode[];
-    result: any;
   };
 }
 
@@ -110,14 +109,14 @@ export interface FormulaPluginMethod {
   description: string;
   inputs: MethodInputOptions[];
   output: MethodOuputOptions;
-  method: any;
+  method: Function;
 }
 
 export interface FormulaPluginVariable {
   name: string;
   description: string;
   type: FormulaNodeType;
-  value: any;
+  value: string | number | boolean | Date;
 }
 
 export interface FormulaPlugin {

@@ -16,19 +16,17 @@ export class Formula {
 
   private readonly variableManager = new VariableManager();
 
-  private readonly tokenizer: ReturnType<typeof createTokenizer>;
+  private readonly tokenizer = createTokenizer();
 
-  private readonly calculator: ReturnType<typeof createCalculator>;
+  private readonly calculator = createCalculator(
+    this.methodManager,
+    this.variableManager
+  );
 
   constructor(options?: IFormulaOptions) {
     options?.plugins?.forEach((plugin) => {
       this.register(plugin);
     });
-    this.tokenizer = createTokenizer();
-    this.calculator = createCalculator(
-      this.methodManager,
-      this.variableManager
-    );
   }
 
   /** 注册插件 */
